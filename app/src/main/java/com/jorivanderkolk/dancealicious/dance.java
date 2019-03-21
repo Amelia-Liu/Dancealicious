@@ -144,8 +144,6 @@ public class dance extends AppCompatActivity {
 
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
             // needs to be here because we implement
-
-            //hoi
         }
     }
 }

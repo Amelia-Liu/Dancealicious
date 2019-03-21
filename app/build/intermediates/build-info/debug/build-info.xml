@@ -2,30 +2,29 @@
 <instant-run
     abi="arm64-v8a,armeabi-v7a,armeabi"
     api-level="26"
-    build-mode="COLD"
+    build-mode="HOT_WARM"
     density="xxxhdpi"
     format="10"
-    ir-eligibility="COMPATIBLE"
     plugin-version="3.3.1"
-    timestamp="1553179867985"
+    timestamp="1553181734226"
     token="-5102352966086982634"
-    verifier="COLD_SWAP_REQUESTED" >
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="214" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="18" />
+        duration="0" />
     <task
         name="verifier"
-        duration="3" />
+        duration="0" />
 
     <artifact
-        location="C:\Users\Johannes\stack\Industrial Design\B3\Creative Apps\Dancealicious\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+        location="C:\Users\Johannes\stack\Industrial Design\B3\Creative Apps\Dancealicious\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
         type="SPLIT" />
 
     <build
@@ -74,20 +73,42 @@
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="COMPATIBLE"
-        timestamp="1553174346775"
-        verifier="COLD_SWAP_REQUESTED" >
+        timestamp="1553181691496"
+        verifier="R_CLASS_CHANGE" >
+        <artifact
+            location="C:\Users\Johannes\stack\Industrial Design\B3\Creative Apps\Dancealicious\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Johannes\stack\Industrial Design\B3\Creative Apps\Dancealicious\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Johannes\stack\Industrial Design\B3\Creative Apps\Dancealicious\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Johannes\stack\Industrial Design\B3\Creative Apps\Dancealicious\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Johannes\stack\Industrial Design\B3\Creative Apps\Dancealicious\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Johannes\stack\Industrial Design\B3\Creative Apps\Dancealicious\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Johannes\stack\Industrial Design\B3\Creative Apps\Dancealicious\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Johannes\stack\Industrial Design\B3\Creative Apps\Dancealicious\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            type="SPLIT" />
         <artifact
             location="C:\Users\Johannes\stack\Industrial Design\B3\Creative Apps\Dancealicious\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
     </build>
     <build
-        build-mode="COLD"
-        ir-eligibility="COMPATIBLE"
-        timestamp="1553179867985"
-        verifier="COLD_SWAP_REQUESTED" >
+        build-mode="HOT_WARM"
+        timestamp="1553181734226"
+        verifier="COMPATIBLE" >
         <artifact
-            location="C:\Users\Johannes\stack\Industrial Design\B3\Creative Apps\Dancealicious\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            location="C:\Users\Johannes\stack\Industrial Design\B3\Creative Apps\Dancealicious\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
             type="SPLIT" />
     </build>
 

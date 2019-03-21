@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Context context = getApplicationContext();
 
         // Invoke the method that initializes all onclick listeners
         initOnClickListeners();
@@ -34,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        final EditText gameCode = findViewById(R.id.game_code);
-        gameCode.setOnClickListener(new View.OnClickListener() {
+        final Button joinGame = findViewById(R.id.btn_join);
+        joinGame.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
                 Context context = getApplicationContext();

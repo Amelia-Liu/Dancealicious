@@ -20,12 +20,15 @@ public class dance extends AppCompatActivity {
     //MyRotation myRotation;
     MyAccelSensor myAccelSensor;
 
+    private float avgX = 10, avgY = 0, avgZ = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dance);
         //myRotation = new MyRotation(this);
         myAccelSensor = new MyAccelSensor(this);
+
     }
 
     @Override
@@ -35,6 +38,7 @@ public class dance extends AppCompatActivity {
         // start sensor listener when activity is started
         //myRotation.start();
         myAccelSensor.start();
+
     }
 
     @Override
@@ -44,58 +48,8 @@ public class dance extends AppCompatActivity {
         // stop sensor listener off when the activity is paused
         //myRotation.stop();
         myAccelSensor.stop();
+
     }
-
-    /*
-    class MyRotation implements SensorEventListener {
-        // definitions for sensor and manager
-        private SensorManager SensorManager;
-        private Sensor sensor;
-        private Context sensorContext = null;
-
-        public MyRotation(Context context) {
-            sensorContext = context;
-            initSensor();
-        }
-
-        public void start() {
-            // enable our sensor when the activity is resumed, ask for 100 ms updates.
-            SensorManager.registerListener(this, sensor,
-                    100000);
-        }
-
-        public void stop() {
-            // turn our sensor off
-            SensorManager.unregisterListener(this);
-        }
-
-        public void initSensor() {
-            // Get an instance of the SensorManager
-            SensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
-            sensor = SensorManager.getDefaultSensor(Sensor.TYPE_GAME_ROTATION_VECTOR);
-        }
-
-        public void onSensorChanged(SensorEvent event) {
-            // Define display format
-            String fmt = "X:%.2f Y:%.2f Z:%.2f";
-            // check that the received event is the proper one and use event.values[] for sensor values
-            if (event.sensor.getType() == Sensor.TYPE_GAME_ROTATION_VECTOR) {
-                   float x = Math.abs(event.values[0]);
-                   float y = Math.abs(event.values[1]);
-                   float z = Math.abs(event.values[2]);
-
-                ((TextView)dance.this.findViewById(R.id.rotationView)).setText(String.format(fmt,x,y,z));
-                // ((TextView)NextActivity.this.findViewById(R.id.textView)).setText(String.format(fmt,event.values[0],event.values[1],event.values[2]));
-                //Snackbar.make(findViewById(R.id.nextLayout),"Yeey...",Snackbar.LENGTH_LONG).show();
-                //Toast.makeText(sensorContext,"Yeey...", Toast.LENGTH_SHORT).show();
-            }
-        }
-
-        public void onAccuracyChanged(Sensor sensor, int accuracy) {
-            // needs to be here because we implement SensorEventListener
-        }
-    }
-    */
 
     class MyAccelSensor implements SensorEventListener {
         // definitions for sensor and manager
@@ -130,15 +84,19 @@ public class dance extends AppCompatActivity {
             String fmt = "%.2f";
             // check that the received event is the proper one and use event.values[] for sensor values
             if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+                // get the absolute value of each axis
                 float x = Math.abs(event.values[0]);
                 float y = Math.abs(event.values[1]);
                 float z = Math.abs(event.values[2]);
-                int total = Math.round(x + y + z);
+                // get the average of the three axis
+                avgX = (999 * avgX + x) / 1000;
+                avgY = (999 * avgY + y) / 1000;
+                avgZ = (999 * avgZ + z) / 1000;
+                //compute one activity level
+                float activity = (avgX + avgY + avgZ - 10)/10 * 100;
+                int result = Math.round(activity); //get an integer to show on in the app
 
-                ((TextView)dance.this.findViewById(R.id.accelerometerView)).setText(Integer.toString(total));
-                // ((TextView)NextActivity.this.findViewById(R.id.textView)).setText(String.format(fmt,event.values[0],event.values[1],event.values[2]));
-                //Snackbar.make(findViewById(R.id.nextLayout),"Yeey...",Snackbar.LENGTH_LONG).show();
-                //Toast.makeText(sensorContext,"Yeey...", Toast.LENGTH_SHORT).show();
+                ((TextView)dance.this.findViewById(R.id.accelerometerView)).setText(Integer.toString(result));
             }
         }
 

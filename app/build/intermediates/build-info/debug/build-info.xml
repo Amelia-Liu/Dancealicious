@@ -7,22 +7,22 @@
     format="10"
     ir-eligibility="COMPATIBLE"
     plugin-version="3.3.1"
-    timestamp="1553174555319"
+    timestamp="1553179867985"
     token="-5102352966086982634"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="232" />
+        duration="214" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="15" />
+        duration="18" />
     <task
         name="verifier"
-        duration="4" />
+        duration="3" />
 
     <artifact
         location="C:\Users\Johannes\stack\Industrial Design\B3\Creative Apps\Dancealicious\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
@@ -84,7 +84,7 @@
     <build
         build-mode="COLD"
         ir-eligibility="COMPATIBLE"
-        timestamp="1553174555319"
+        timestamp="1553179867985"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\Johannes\stack\Industrial Design\B3\Creative Apps\Dancealicious\app\build\intermediates\split-apk\debug\slices\slice_1.apk"

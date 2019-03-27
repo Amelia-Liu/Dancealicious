@@ -4,4 +4,13 @@
     <string name="game_hint">Fill in the party code...</string>
     <string name="name_hint">Fill in your name...</string>
     <string name="join">Join game</string>
+    <string name="join_team">Please join a team that you like to dance for this evening</string>
+    <string name="orange">Join team Orange</string>
+    <string name="blue">Join team Blue</string>
+    <string name="red">Join team Red</string>
+    <string name="yellow">Join team Yellow</string>
+    <string name="T_Orange">Team Orange</string>
+    <string name="T_Blue">Team Blue</string>
+    <string name="T_Red">Team Red</string>
+    <string name="T_Yellow">Team Yellow</string>
 </resources>

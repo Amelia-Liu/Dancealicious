@@ -18,6 +18,8 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.jorivanderkolk.dancealicious.CurrentTeam" />
+        <activity android:name="com.jorivanderkolk.dancealicious.ChooseTeam" />
         <activity android:name="com.jorivanderkolk.dancealicious.dance" />
         <activity android:name="com.jorivanderkolk.dancealicious.MainActivity" >
             <intent-filter>

@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_gravity="center_vertical"
-    android:layout_marginTop="140dp">
+    tools:context=".CurrentTeam">
 
     <TextView
-        android:id="@+id/TeamOrange"
+        android:id="@+id/Your_Team"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/T_Orange"
-        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:text="@string/your_team"
+        android:textAlignment="center"
         android:textSize="30sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:layout_marginTop="65dp"
+        />
 
 
-
-</LinearLayoutCompat>
+</LinearLayout>

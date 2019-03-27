@@ -1037,7 +1037,7 @@ id FUNCTION
 id META
 id SHIFT
 id SYM
-id TeamOrange
+id Your_Team
 id accelerometerView
 id action_bar
 id action_bar_activity_content
@@ -1391,6 +1391,7 @@ string red
 string search_menu_title
 string status_bar_notification_info_overflow
 string yellow
+string your_team
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

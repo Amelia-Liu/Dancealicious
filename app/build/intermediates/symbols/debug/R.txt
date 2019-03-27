@@ -1036,7 +1036,7 @@ int id FUNCTION 0x7f080003
 int id META 0x7f080004
 int id SHIFT 0x7f080005
 int id SYM 0x7f080006
-int id TeamOrange 0x7f080007
+int id Your_Team 0x7f080007
 int id accelerometerView 0x7f080008
 int id action_bar 0x7f080009
 int id action_bar_activity_content 0x7f08000a
@@ -1390,6 +1390,7 @@ int string red 0x7f0d0040
 int string search_menu_title 0x7f0d0041
 int string status_bar_notification_info_overflow 0x7f0d0042
 int string yellow 0x7f0d0043
+int string your_team 0x7f0d0044
 int style AlertDialog_AppCompat 0x7f0e0000
 int style AlertDialog_AppCompat_Light 0x7f0e0001
 int style Animation_AppCompat_Dialog 0x7f0e0002

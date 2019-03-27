@@ -4682,7 +4682,7 @@ public final class R {
     public static final int META=0x7f080004;
     public static final int SHIFT=0x7f080005;
     public static final int SYM=0x7f080006;
-    public static final int TeamOrange=0x7f080007;
+    public static final int Your_Team=0x7f080007;
     public static final int accelerometerView=0x7f080008;
     public static final int action_bar=0x7f080009;
     public static final int action_bar_activity_content=0x7f08000a;
@@ -5046,6 +5046,7 @@ public final class R {
     public static final int search_menu_title=0x7f0d0041;
     public static final int status_bar_notification_info_overflow=0x7f0d0042;
     public static final int yellow=0x7f0d0043;
+    public static final int your_team=0x7f0d0044;
   }
   public static final class style {
     public static final int AlertDialog_AppCompat=0x7f0e0000;

@@ -2,6 +2,7 @@ package com.jorivanderkolk.dancealicious;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         myWhat.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //Context context = getApplicationContext();
-                Snackbar.make(findViewById(R.id.ConstraintLayout),"You will get this code at the party", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(findViewById(R.id.ConstraintLayout), "You will get this code at the party", Snackbar.LENGTH_LONG).show();
                 //Toast.makeText(context,"Yeey...", Toast.LENGTH_SHORT).show();
             }
         });
@@ -60,41 +61,44 @@ public class MainActivity extends AppCompatActivity {
                 // Get text from input, paste text into output
                 String code = inputCode.getText().toString();
                 String name = inputName.getText().toString();
+                //String name = "test";
 
-                if(code.equals("1234")){
+                if (code.equals("1234")) {
 
                     dance();
-                    writeToFile(name, context);
-                    Toast.makeText(context,"Correct code", Toast.LENGTH_SHORT).show();
+                    //writeToFile(name, "config.text", context);
+                    SavePreferences("name", name);
+                    Toast.makeText(context, "Correct code", Toast.LENGTH_SHORT).show();
 
                 } else {
-                    Toast.makeText(context,"Wrong code", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Wrong code", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
-    private void dance(){
+    private void dance() {
         startActivity(new Intent(this, ChooseTeam.class));
     }
 
-    private void writeToFile(String data,Context context) {
-
-        try {
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("config.txt", Context.MODE_PRIVATE));
-            outputStreamWriter.write(data);
-            outputStreamWriter.close();
-            Log.v("Success", "Successfully written to file!");
-        }catch (IOException e) {
-            Log.e("Exception", "File write failed: " + e.toString());
+    private void setName() {
+        String savedName = LoadPreferences("name");
+        if (savedName != null) {
+            welcomeNm.setText("");
+            welcomeNm.setText(savedName);
         }
     }
 
-    private void setName() {
-        String savedName = readFromFile(context);
-        if (savedName != null){
-            welcomeNm.setText("");
-            welcomeNm.setText(savedName);
+    /*
+    private void writeToFile(String data, String file, Context context) {
+
+        try {
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput(file, Context.MODE_PRIVATE));
+            outputStreamWriter.write(data);
+            outputStreamWriter.close();
+            Log.v("Success", "Successfully written to file!");
+        } catch (IOException e) {
+            Log.e("Exception", "File write failed: " + e.toString());
         }
     }
 
@@ -126,5 +130,19 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return name;
+    }
+    */
+
+    public void SavePreferences(String key, String value) {
+        SharedPreferences sharedPreferences = getSharedPreferences("PLAYER_DATA", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(key, value);
+        editor.apply();
+    }
+
+    public String LoadPreferences(String key) {
+
+        SharedPreferences pref = getSharedPreferences("PLAYER_DATA", MODE_PRIVATE);
+        return pref.getString(key, "No name given");
     }
 }

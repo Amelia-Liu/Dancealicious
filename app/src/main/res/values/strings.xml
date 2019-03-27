@@ -13,4 +13,5 @@
     <string name="T_Blue">Team Blue</string>
     <string name="T_Red">Team Red</string>
     <string name="T_Yellow">Team Yellow</string>
+    <string name="your_team">Your Team</string>
 </resources>

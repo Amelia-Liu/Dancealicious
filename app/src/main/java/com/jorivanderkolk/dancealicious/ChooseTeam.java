@@ -1,6 +1,8 @@
 package com.jorivanderkolk.dancealicious;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -46,45 +48,42 @@ public class ChooseTeam extends AppCompatActivity {
 
         joinOrange.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                Context context = getApplicationContext();
-                Toast.makeText(context, "Join Orange Team", Toast.LENGTH_SHORT).show();
-
+                joinTeam("Orange");
             }
         });
 
         joinBlue.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                Context context = getApplicationContext();
-                Toast.makeText(context, "Join Blue Team", Toast.LENGTH_SHORT).show();
-
+                joinTeam("Blue");
             }
         });
 
         joinRed.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                Context context = getApplicationContext();
-                Toast.makeText(context, "Join Red Team", Toast.LENGTH_SHORT).show();
-
+                joinTeam("Red");
             }
         });
 
         joinYellow.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                Context context = getApplicationContext();
-                Toast.makeText(context, "Join Yellow Team", Toast.LENGTH_SHORT).show();
-
+                joinTeam("Yellow");
             }
         });
     }
 
+    private void joinTeam(String team){
+        SavePreferences("team", team);
+        Toast.makeText(context, "Join team " + team, Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this, CurrentTeam.class));
+    }
+
+
     private void setName() {
+
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Welcome, ");
-        stringBuilder.append(readFromFile(context));
+        //stringBuilder.append(readFromFile(context));
+        stringBuilder.append(LoadPreferences("name"));
         stringBuilder.append("!");
 
         String playerName = stringBuilder.toString();
@@ -94,6 +93,7 @@ public class ChooseTeam extends AppCompatActivity {
         welcomeMsg.setText(playerName);
     }
 
+    /*
     private String readFromFile(Context context) {
 
         String name = "";
@@ -122,6 +122,17 @@ public class ChooseTeam extends AppCompatActivity {
         }
 
         return name;
+    }
+    */
+    public void SavePreferences(String key, String value) {
+        SharedPreferences sharedPreferences = getSharedPreferences("PLAYER_DATA", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(key, value);
+        editor.apply();
+    }
 
+    public String LoadPreferences(String key) {
+        SharedPreferences pref = getSharedPreferences("PLAYER_DATA", MODE_PRIVATE);
+        return pref.getString(key, "No name given");
     }
 }
